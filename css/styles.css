@@ -4,6 +4,7 @@
   --desaturated-dark-blue: hsl(214, 17%, 51%);
   --grayish-blue: hsl(212, 23%, 69%);
   --light-grayish-blue: hsl(210, 46%, 95%);
+  --share-position: calc(50% + 157px);
 }
 
 *,
@@ -34,6 +35,7 @@ body {
 }
 
 .card {
+  max-width: 672px;
   margin: 0 16px;
   border-radius: 10px;
   overflow: hidden;
@@ -126,6 +128,15 @@ body {
   display: flex;
 }
 
+#share-set:checked + .card-footer .card-share {
+  background: var(--desaturated-dark-blue);
+}
+
+#share-set:checked + .card-footer .card-share .card-share-img {
+  -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
+}
+
 #share-set:checked ~ .card-footer .card-img-autor,
 #share-set:checked ~ .card-footer .card-autor {
   display: none;
@@ -178,5 +189,72 @@ body {
 
 .attribution a {
   color: #3e52a3;
+}
+
+@media (max-width: 320px) {
+  .share-txt {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    display: inline-block;
+  }
+  .card-img {
+    float: left;
+    display: inline-block;
+    width: 35%;
+    height: 300px;
+  }
+  .card-body {
+    display: block;
+    float: right;
+    width: 65%;
+    margin: 0;
+    padding: 32px 41px 0 32px;
+  }
+  .card-footer {
+    float: right;
+    width: 65%;
+  }
+  .card-title {
+    font-size: 20px;
+  }
+  .card-desc {
+    margin-top: 18px;
+    margin-bottom: 18px;
+  }
+  #share-set:checked + .card-footer {
+    background-color: #fff;
+  }
+  .card-share-buttons-item {
+    margin: 12px 0;
+  }
+  #share-set:checked ~ .card-footer .card-img-autor,
+  #share-set:checked ~ .card-footer .card-autor {
+    display: block;
+  }
+  #share-set:checked + .card-footer .card-share-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    z-index: 999;
+    position: absolute;
+    background: var(--dark-grayish-blue);
+    padding: 0 10px;
+    border-radius: 10px;
+    left: var(--share-position);
+    margin-bottom: 100px;
+  }
+  #share-set:checked + .card-footer .card-share-buttons::before {
+    content: " ";
+    border: 10px solid transparent;
+    /* border-left: 21px solid var(--dark-grayish-blue); */
+    border-top: 10px solid var(--dark-grayish-blue);
+    position: absolute;
+    top: 42px;
+    left: 50%;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
