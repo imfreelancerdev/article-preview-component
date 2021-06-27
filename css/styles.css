@@ -198,6 +198,9 @@ body {
 }
 
 @media (min-width: 768px) {
+  .flex {
+    margin-top: 107px;
+  }
   .card {
     display: inline-block;
   }
